@@ -3,43 +3,27 @@ import company_logo from "../../Assets/image/download.png";
 import login_profile_img from "../../Assets/image/login_img.png";
 import "../../Css/Style.css";
 import {Link} from 'react-router-dom'
+import CreateCompany from "./CreateCompany";
 
 const Header = ({ sideBar, setSideBar }) => {
-  const [Notification, setNotification] = useState(false);
-
-  const [LoginProfileBtn, setLoginProfileBtn] = useState(false);
-  const [searchField, setSearchField] = useState(false);
+const [LoginProfileBtn, setLoginProfileBtn] = useState(false);
+const [searchField, setSearchField] = useState(false);
 
 
 const handleSidebar=()=>{
   if (sideBar) {
     setSideBar(false);
     setLoginProfileBtn(false);
-    setSearchField(false);
-    setNotification(false);
   } else {
     setSideBar(true);
   }
 }
-
-
-
-  const handleChange = () => {
-    if (Notification) {
-      setNotification(false);
-    } else {
-      setNotification(true);
-      setLoginProfileBtn(false);
-      setSearchField(false);
-    }
-  };
 
   const handleChangeAdmin = () => {
     if (LoginProfileBtn) {
       setLoginProfileBtn(false);
     } else {
       setLoginProfileBtn(true);
-      setNotification(false);
       setSearchField(false);
     }
   };
@@ -49,7 +33,6 @@ const handleSidebar=()=>{
       setSearchField(false);
     } else {
       setSearchField(true);
-      setNotification(false);
       setLoginProfileBtn(false);
     }
   };
@@ -95,85 +78,7 @@ const handleSidebar=()=>{
 
           <div className="header_details">
             <div className="header_detail_section">
-              {/* <div className="header_search  _field">
-                <input type="text" />
-                <button>
-                  <i className="fa fa-search"></i>
-                </button>
-              </div> */}
-              {/* <div class="responsive_header_search_field">
-                   <button>
-                       <i class="fa fa-search"  onClick={handleSearchResponsive}></i>
-                     <div class={searchField ? "header_responsive_search_field toogle_responsive_search_field" : "header_responsive_search_field"}><input type="text" /><button>search</button></div>
-                   </button>
-               </div> */}
-              {/* <div className="header_notification_btn">
-                <a  onClick={handleChange}>
-                  <i className="far fa-bell"></i>
-                  <span>50+</span>
-                </a>
-                <div
-                  className={
-                    Notification
-                      ? "header_notification_click_detail notificationpannel"
-                      : "header_notification_click_detail"
-                  }
-                >
-                  <div className="header_notification_click_detail_head">
-                    <p>notifications</p>
-                    <button>clear all</button>
-                  </div>
-                  <a href="#">
-                    {" "}
-                    <div className="header_single_notification_detail">
-                      <div className="header_single_notification_data">
-                        <img src={login_profile_img} />
-                        <div className="header_single_notification_time">
-                          <span>
-                            Lesley Grauer added new task Hospital Administration
-                          </span>
-                          <p>4 minut ago</p>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-
-                  <a href="#">
-                    {" "}
-                    <div className="header_single_notification_detail">
-                      <div className="header_single_notification_data">
-                        <img src={login_profile_img} />
-                        <div className="header_single_notification_time">
-                          <span>
-                            Lesley Grauer added new task Hospital Administration
-                          </span>
-                          <p>4 minut ago</p>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-
-                  <a href="#">
-                    {" "}
-                    <div className="header_single_notification_detail">
-                      <div className="header_single_notification_data">
-                        <img src={login_profile_img} />
-                        <div className="header_single_notification_time">
-                          <span>
-                            Lesley Grauer added new task Hospital Administration
-                          </span>
-                          <p>4 minut ago</p>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-
-                  <div className="header_notification_click_detail_footer">
-                    <a href="#">view all notifications</a>
-                  </div>
-                </div>
-              </div> */}
-              <div className="header_login_details_section">
+              <div className="header_login_details_section"   data-toggle="modal" data-target="#CreateCompany">
                 <div
                   className="header_login_details"
                   onClick={handleChangeAdmin}
@@ -181,7 +86,7 @@ const handleSidebar=()=>{
                   <figure>
                     <img src={login_profile_img} />
                   </figure>
-                  <p>admin</p>
+                  <p>Create Company</p>
                   <span>
                     <i className="fas fa-chevron-down"></i>
                   </span>
@@ -218,7 +123,10 @@ const handleSidebar=()=>{
           </div>
         </div>
       </header>
+      <CreateCompany/>
+
     </>
+   
   );
 };
 

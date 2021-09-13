@@ -2,7 +2,6 @@ import React from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "../../Pages/HomePage";
 import PartiesPage from "../../Pages/PartiesPage";
-import DepartmentPage from "../../Pages/DepartmentPage";
 import SaleInvoicesPage from "../../Pages/SaleInvoicesPage";
 import CashInHandsPage from "../../Pages/CashInHandsPage";
 import LoanInAccountsPage from "../../Pages/LoanInAccountsPage";
@@ -20,6 +19,7 @@ import SaleOrderPage from "../../Pages/SaleOrderPage";
 import DeliveryChallanPage from "../../Pages/DeliveryChallanPage";
 import SaleReturnPage from "../../Pages/SaleReturnPage";
 import PurchaseBillsPage from "../../Pages/PurchaseBillsPage";
+import ItemsPage from "../../Pages/ItemsPage";
 
 
 
@@ -44,8 +44,8 @@ const BodyContent = ({ sideBar }) => {
                 <Route path="/parties">
                   <PartiesPage/>
                 </Route>
-                <Route path="/department">
-                  <DepartmentPage/>
+                <Route path="/items">
+                  <ItemsPage/>
                 </Route>
                  <Route path="/saleinvoices">
                    <SaleInvoicesPage/>
